@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSec {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for("static", filename="base.css") }}">
+</head>
+<body>
+    <div style="text-align: center; background-color: #43A0D8;">
+        <a href="/" ><img alt="Logo WebSec" src="{{ url_for("static", filename="icon.png") }}" width="300"
+            height="150"></a>
+    </div>
+    <div class="menu" >
+        <ul>
+        <li><a href="/inyecciones-sql">Inyeccioness SQL</a></li>
+        <li><a href="/xss">XSS</a></li>
+        <li><a href="/xxe">XXE</a></li>
+        <li><a href="/csrf">CSRF</a></li>
+        <li><a href="/lfi">LFI</a></li>
+        <li><a href="/robo-sesion">Robo de sesión</a></li>
+        <li><a href="/robo-cookies">Robo de cookies</a></li>
+        </ul>
+      </div>
+      <div class="contenido">
+{% block content %}{% endblock %}
+</div>
+</body>
+</html> 

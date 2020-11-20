@@ -1,0 +1,56 @@
+{% extends "base_template.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+<h1>XSS</h1>
+<h2>Explicación</h2>
+
+<h2>Ejemplo de ataque</h2>
+
+<p>Ejemplos</p> <br>
+
+<p class="ejemplo">&lt;i&gt; Sale en cursiva &lt;/i&gt;</p>
+<p class="ejemplo">&lt;img src="https://www.clipartmax.com/png/full/147-1474351_javascript-icon.png"&gt;</p>
+<p class="ejemplo">&lt;script&gt; alert("Esta alerta no debería aparecer!!!") &lt;/script&gt;</p>
+<p class="ejemplo">&lt;script&gt; alert("Esta alerta no debería aparecer!!!") &lt;/script&gt;</p>
+
+
+<form name="vulnerable" method="POST">
+    <label >Añadir un comentario: </label>
+    <input type="text" name="formulario_vulnerable" id="formulario_vulnerable" value="" required>
+    <input type="submit">
+</form>
+
+<table border="1" bordercolor="666633" cellpadding="2" cellspacing="0" style="text-align: center;">
+    <tr>
+        <th style="width: 30%;"> Usuario </th> <th > Comentario </th>
+    </tr>
+    {% for coment in coments_vulnerables %}
+    <tr>
+        <td style="width: 30%;"> {{coment[0]}} </td> <td > {{coment[1]|safe}} </td>
+    </tr>
+    {% endfor %}
+</table>
+<h2>Mitigación</h2>
+    
+
+
+<form name="seguro" method="POST">
+    <label for="seguro">Añadir un comentario: </label>
+    <input type="text" name="formulario_seguro" id="formulario_seguro" value="" required>
+    <input type="submit">
+</form>
+
+
+<table border="1" bordercolor="666633" cellpadding="2" cellspacing="0" style="text-align: center;">
+    <tr>
+        <th style="width: 30%;"> Usuario </th> <th > Comentario </th>
+    </tr>
+
+    {% for coment in coments_seguros %}
+    <tr>
+        <td style="width: 30%;"> {{coment[0]}} </td> <td > {{coment[1]}} </td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock content %}
