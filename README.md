@@ -5,3 +5,7 @@ WebSec es un proyecto pensado para el aprendizaje del campo de la seguridad web.
 La aplicación está organizada en diferentes pestañas, en cada una de las cuales se explica un tipo de vulnerabilidad web. También se exponen ejemplos de como explotar dicha vulnerabilidad y las medidas necesarias que deberían llevarse a cabo para prevenir ese tipo de ataques.
 
 La aplicaion ha sido desarrollada por Rodrigo Beltrán Curiel, alumno de ingeniería informática en la universidad de Valladolid como parte de su trabajo de fin de grado.
+
+## Cómo ejecutarla
+
+Ir al directorio descargado desde el cmd y ejecutar set "FLASK_APP=run.py" y si queremos modo debug ejecutar set "FLASK_ENV=development". Por ultimo ejecutar flask run
